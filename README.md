@@ -53,15 +53,15 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      volumes:
-        - /var/run/docker.sock:/tmp/docker.sock:ro
-        - ./proxy/certs:/etc/nginx/certs
-        - ./proxy/acme:/acmecerts
-        - ./proxy/conf.d:/etc/nginx/conf.d
-        - ./proxy/vhost.d:/etc/nginx/vhost.d 
-        - ./proxy/stream.d:/etc/nginx/stream.d 
-        - ./proxy/dhparam:/etc/nginx/dhparam 
-      network_mode: "host"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./proxy/certs:/etc/nginx/certs
+      - ./proxy/acme:/acmecerts
+      - ./proxy/conf.d:/etc/nginx/conf.d
+      - ./proxy/vhost.d:/etc/nginx/vhost.d 
+      - ./proxy/stream.d:/etc/nginx/stream.d 
+      - ./proxy/dhparam:/etc/nginx/dhparam 
+    network_mode: "host"
 ```
 
 
