@@ -2,7 +2,7 @@
 
 _SCRIPT_="$0"
 
-ACME_BIN="/acme.sh/acme.sh --home /acme.sh --config-home /acmecerts"
+ACME_BIN="/acme.sh/acme.sh --home /acme.sh --config-home /acmecerts --dns dns_cf"
 
 DEFAULT_CONF="/etc/nginx/conf.d/default.conf"
 

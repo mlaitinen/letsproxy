@@ -153,8 +153,6 @@ upstream {{ .Upstream }} {
 
 
 
-client_max_body_size 4096M;
-
 
 {{ if ne $nginx_proxy_version "" }}
 # nginx-proxy version : {{ $nginx_proxy_version }}
