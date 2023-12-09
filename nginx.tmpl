@@ -133,9 +133,12 @@ upstream {{ .Upstream }} {
                         {{ if $containerNetwork.IP }}
                             {{ $server_found = "true" }}
         server {{ $containerNetwork.IP }}:{{ $port }};
+                        {{ else if (eq $containerNetwork.Name "host") }}
+                            {{ $server_found = "true" }}
+        server 127.0.0.1:{{ $port }};
                         {{ else }}
         # /!\ No IP for this network!
-                    	{{ end }}
+                        {{ end }}
 					{{ end }}
 				{{ else }}
         # Cannot connect to network '{{ $containerNetwork.Name }}' of this container
