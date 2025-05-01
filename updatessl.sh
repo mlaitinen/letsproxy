@@ -17,7 +17,7 @@ updatessl() {
     do
       d=$(echo "$d_list" | cut -d , -f 1)
       ln -s "$CERTS/$d.crt" "$CERTS/$d.chain.pem" || true
-      $ACME_BIN --issue --server letsencrypt --ocsp -k ec-256 \
+      $ACME_BIN --issue --server letsencrypt -k ec-256 \
       -d $d_list \
       --nginx \
       --fullchain-file "$CERTS/$d.crt" \
