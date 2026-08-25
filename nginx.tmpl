@@ -256,9 +256,11 @@ server {
 server {
 	server_name _; # This is just an invalid value which will never trigger on a real hostname.
 	server_tokens off;
-	listen {{ $external_https_port }} ssl http2;
+	listen {{ $external_https_port }} ssl;
+	http2 on;
 	{{ if $enable_ipv6 }}
-	listen [::]:{{ $external_https_port }} ssl http2;
+	listen [::]:{{ $external_https_port }} ssl;
+	http2 on;
 	{{ end }}
 	{{ $access_log }}
 	include /etc/nginx/vhost.d/default;
